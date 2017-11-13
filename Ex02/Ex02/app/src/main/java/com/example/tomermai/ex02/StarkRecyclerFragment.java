@@ -28,10 +28,8 @@ public class StarkRecyclerFragment extends Fragment {
         mFiguresList[4] = new GameOfThronesFigure("Bran Stark");
     }
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View mView = inflater.inflate(R.layout.startk_list_item, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View mView = inflater.inflate(R.layout.stark_list_layout, container, false);
         mRecyclerView = mView.findViewById(R.id.stark_list);
 
         // use this setting to improve performance if you know that changes

@@ -39,8 +39,7 @@ public class FiguresRecyclerListAdapter
                 .inflate(R.layout.figure_list_header_view, parent, false);
 
         // set the view's size, margins, paddings and layout parameters
-        ViewHolder viewHolder = new ViewHolder(v);
-        return viewHolder;
+        return new ViewHolder(v);
     }
 
     // Replace the contents of a view (invoked by the layout manager)
