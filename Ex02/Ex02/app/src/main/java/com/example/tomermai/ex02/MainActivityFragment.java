@@ -1,8 +1,7 @@
 package com.example.tomermai.ex02;
 
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -28,7 +27,7 @@ public class MainActivityFragment extends Fragment {
 
         mainViewFragment = inflater.inflate(R.layout.fragment_main, container, false);
 
-        FloatingActionButton showTextButton = mainViewFragment.findViewById(R.id.show_main_text_b);
+        Button showTextButton = mainViewFragment.findViewById(R.id.show_main_text_b);
         Button Lannister = mainViewFragment.findViewById(R.id.lannister_button);
         Button starkListButton = mainViewFragment.findViewById(R.id.stark_button);
 

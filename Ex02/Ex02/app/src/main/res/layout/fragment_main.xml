@@ -1,52 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.tomermai.ex02.MainActivityFragment"
-    tools:showIn="@layout/activity_main">
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
+    android:weightSum="1">
 
     <EditText
         android:id="@+id/text_prompt_home"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="53dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:background="@android:color/background_light"
         android:singleLine="true"
-        android:text="Replace This Text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.383"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintLeft_creator="1" />
+        android:text="Replace This Text" />
 
     <LinearLayout
         android:layout_width="337dp"
         android:layout_height="196dp"
         android:layout_gravity="bottom|center"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="201dp">
+        android:layout_weight="0.12">
 
-        <android.support.design.widget.FloatingActionButton
+        <Button
             android:id="@+id/show_main_text_b"
+            style="?android:attr/buttonStyleInset"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="bottom|center_horizontal"
             android:layout_margin="@dimen/fab_margin"
-            android:layout_marginTop="43dp"
-            app:backgroundTint="@android:color/holo_green_light"
-            app:layout_anchor="@+id/include2"
-            app:layout_anchorGravity="center_vertical|center_horizontal"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_prompt_home"
-            app:srcCompat="@android:drawable/ic_menu_myplaces"
-            tools:layout_constraintLeft_creator="1"
-            tools:layout_constraintRight_creator="1"
-            tools:layout_constraintTop_creator="1" />
+            android:layout_marginTop="43dp" />
 
         <Button
             android:id="@+id/stark_button"
@@ -64,4 +48,4 @@
             android:text="House Lannister" />
     </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
