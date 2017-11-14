@@ -11,14 +11,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Create a new Fragment to be placed in the activity layout
-        MainActivityFragment firstFragment = new MainActivityFragment();
+        MainActivityFragment firstAppFragment = new MainActivityFragment();
 
         // In case this activity was started with special instructions from an
         // Intent, pass the Intent's extras to the fragment as arguments
-        firstFragment.setArguments(getIntent().getExtras());
+        firstAppFragment.setArguments(getIntent().getExtras());
 
         // Add the fragment to the 'fragment_container' FrameLayout
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment_container, firstFragment).commit();
+                .add(R.id.fragment_container, firstAppFragment).commit();
     }
 }

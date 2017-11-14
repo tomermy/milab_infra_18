@@ -1,18 +1,14 @@
 package com.example.tomermai.ex02;
 
-/**
- * Created by tomermai on 13/11/2017.
- */
-
-public class GameOfThronesFigure {
+class GameOfThronesFigure {
     private String mFigureName;
 
 
-    public GameOfThronesFigure(String mFigureName) {
+    GameOfThronesFigure(String mFigureName) {
         this.mFigureName = mFigureName;
     }
 
-    public String getmFigureName() {
+    String getmFigureName() {
         return mFigureName;
     }
 

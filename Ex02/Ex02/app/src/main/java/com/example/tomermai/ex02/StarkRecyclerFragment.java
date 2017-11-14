@@ -2,7 +2,6 @@ package com.example.tomermai.ex02;
 
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,12 +19,14 @@ public class StarkRecyclerFragment extends Fragment {
     private GameOfThronesFigure[] mFiguresList;
 
     public StarkRecyclerFragment() {
-        this.mFiguresList = new GameOfThronesFigure[5];
-        mFiguresList[0] = new GameOfThronesFigure("Ned Stark");
-        mFiguresList[1] = new GameOfThronesFigure("Arya Stark");
-        mFiguresList[2] = new GameOfThronesFigure("Sansa Stark");
-        mFiguresList[3] = new GameOfThronesFigure("Rob Stark");
-        mFiguresList[4] = new GameOfThronesFigure("Bran Stark");
+        this.mFiguresList = new GameOfThronesFigure[7];
+        mFiguresList[0] = new GameOfThronesFigure("Eddard");
+        mFiguresList[1] = new GameOfThronesFigure("Arya");
+        mFiguresList[2] = new GameOfThronesFigure("Sansa");
+        mFiguresList[3] = new GameOfThronesFigure("Robb");
+        mFiguresList[4] = new GameOfThronesFigure("Bran");
+        mFiguresList[5] = new GameOfThronesFigure("Rickon");
+        mFiguresList[6] = new GameOfThronesFigure("Jon (Snow)");
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
