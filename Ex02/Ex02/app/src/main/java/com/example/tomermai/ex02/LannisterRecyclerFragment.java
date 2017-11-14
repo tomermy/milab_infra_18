@@ -17,12 +17,12 @@ public class LannisterRecyclerFragment extends Fragment {
 
     public LannisterRecyclerFragment() {
         this.mFiguresList = new GameOfThronesFigure[6];
-        mFiguresList[0] = new GameOfThronesFigure("Tywin");
-        mFiguresList[1] = new GameOfThronesFigure("Cersei");
-        mFiguresList[2] = new GameOfThronesFigure("Jaime");
-        mFiguresList[3] = new GameOfThronesFigure("Tyrion");
-        mFiguresList[4] = new GameOfThronesFigure("Joffrey");
-        mFiguresList[5] = new GameOfThronesFigure("Myrcella");
+        mFiguresList[0] = new GameOfThronesFigure("Tywin", R.mipmap.tywin);
+        mFiguresList[1] = new GameOfThronesFigure("Cersei", R.mipmap.cersei);
+        mFiguresList[2] = new GameOfThronesFigure("Jaime", R.mipmap.jaime);
+        mFiguresList[3] = new GameOfThronesFigure("Tyrion", R.mipmap.tyrion);
+        mFiguresList[4] = new GameOfThronesFigure("Joffrey", R.mipmap.joffrey);
+        mFiguresList[5] = new GameOfThronesFigure("Myrcella", R.mipmap.myrcella);
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

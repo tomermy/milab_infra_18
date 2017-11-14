@@ -20,13 +20,13 @@ public class StarkRecyclerFragment extends Fragment {
 
     public StarkRecyclerFragment() {
         this.mFiguresList = new GameOfThronesFigure[7];
-        mFiguresList[0] = new GameOfThronesFigure("Eddard");
-        mFiguresList[1] = new GameOfThronesFigure("Arya");
-        mFiguresList[2] = new GameOfThronesFigure("Sansa");
-        mFiguresList[3] = new GameOfThronesFigure("Robb");
-        mFiguresList[4] = new GameOfThronesFigure("Bran");
-        mFiguresList[5] = new GameOfThronesFigure("Rickon");
-        mFiguresList[6] = new GameOfThronesFigure("Jon (Snow)");
+        mFiguresList[0] = new GameOfThronesFigure("Eddard", R.mipmap.eddard);
+        mFiguresList[1] = new GameOfThronesFigure("Arya", R.mipmap.arya);
+        mFiguresList[2] = new GameOfThronesFigure("Sansa", R.mipmap.sansa);
+        mFiguresList[3] = new GameOfThronesFigure("Robb", R.mipmap.robb);
+        mFiguresList[4] = new GameOfThronesFigure("Bran", R.mipmap.bran);
+        mFiguresList[5] = new GameOfThronesFigure("Rickon", R.mipmap.rickkon);
+        mFiguresList[6] = new GameOfThronesFigure("Jon (Snow)", R.mipmap.jon_snow);
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
