@@ -1,9 +1,8 @@
 package com.example.tomermai.ex02;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +15,19 @@ import android.widget.Toast;
  */
 public class MainActivityFragment extends Fragment {
 
+    public static final int STARKS_ID = 1;
+    public static final int LANNISTER_ID = 2;
+    public static final String EXTRA_FAMILY = "com.example.tomermai.ex2.FAMILY";
     View mainViewFragment;
 
     public MainActivityFragment() {
+    }
+
+    /** Called when the user taps the families button */
+    public void startFiguresActivity(View view, int familyID) {
+        Intent intent = new Intent(this.getActivity(), FamilyListActivity.class);
+        intent.putExtra(EXTRA_FAMILY, familyID);
+        startActivity(intent);
     }
 
     @Override
@@ -32,12 +41,6 @@ public class MainActivityFragment extends Fragment {
         Button starkListButton = mainViewFragment.findViewById(R.id.stark_button);
 
         final TextView promptTextView = mainViewFragment.findViewById(R.id.text_prompt_home);
-        final FragmentManager manager = getActivity().getSupportFragmentManager();
-        final FragmentTransaction transaction = manager.beginTransaction();
-
-        // todo: add Lannister listPage fragment - DONE!
-        final StarkRecyclerFragment starksListPage = new StarkRecyclerFragment();
-        final LannisterRecyclerFragment lannisterListPage = new LannisterRecyclerFragment();
 
         showTextButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,19 +53,14 @@ public class MainActivityFragment extends Fragment {
         starkListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                transaction.replace(R.id.fragment_container, starksListPage);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                startFiguresActivity(v, STARKS_ID);
             }
         });
 
-        //  todo: Add Lannister listener function - DONE!
         lannisterListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                transaction.replace(R.id.fragment_container, lannisterListPage);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                startFiguresActivity(v, LANNISTER_ID);
             }
         });
 
