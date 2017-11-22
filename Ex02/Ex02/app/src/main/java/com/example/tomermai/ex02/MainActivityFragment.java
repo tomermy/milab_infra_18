@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +40,8 @@ public class MainActivityFragment extends Fragment {
         Button showTextButton = mainViewFragment.findViewById(R.id.show_main_text_b);
         Button lannisterListButton = mainViewFragment.findViewById(R.id.lannister_button);
         Button starkListButton = mainViewFragment.findViewById(R.id.stark_button);
+        Button spamServiceButton = mainViewFragment.findViewById(R.id.start_notification_service);
+        final EditText setTimeInterval = mainViewFragment.findViewById(R.id.set_notifications_time);
 
         final TextView promptTextView = mainViewFragment.findViewById(R.id.text_prompt_home);
 
@@ -64,6 +67,19 @@ public class MainActivityFragment extends Fragment {
             }
         });
 
+        spamServiceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                double alertsTimeIntervalMinutes = Double.parseDouble(setTimeInterval.getText().toString());
+                long timeIntervalMili = Math.round(alertsTimeIntervalMinutes * 60 * 1000);
+                startSpamActivity(timeIntervalMili);
+            }
+        });
+
         return mainViewFragment;
+    }
+
+    public void startSpamActivity(long timeInterval) {
+        NotificationsService.startActionNotifications(this.getActivity(), timeInterval);
     }
 }

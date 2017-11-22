@@ -1,5 +1,6 @@
 package com.example.tomermai.ex02;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -20,5 +21,5 @@ public class MainActivity extends AppCompatActivity {
         // Add the fragment to the 'fragment_container' FrameLayout
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragment_container, firstAppFragment).commit();
-    }
+        }
 }

@@ -47,5 +47,39 @@
             android:layout_weight="1"
             android:text="House Lannister" />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="337dp"
+        android:layout_height="196dp"
+        android:layout_gravity="bottom|center"
+        android:orientation="vertical"
+        android:layout_weight="0.12">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="32dp"
+            android:background="@android:color/white"
+            android:text="Set Time Interval (Minutes):"
+            android:textAlignment="center" />
+
+        <EditText
+            android:id="@+id/set_notifications_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="?attr/colorButtonNormal"
+            android:inputType="numberDecimal"
+            android:singleLine="true"
+            android:text="0.5"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/start_notification_service"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Start Spam Service" />
+
+    </LinearLayout>
 </LinearLayout>
