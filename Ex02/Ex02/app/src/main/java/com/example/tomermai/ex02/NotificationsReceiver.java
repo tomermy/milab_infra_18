@@ -7,15 +7,18 @@ import android.content.Context;
 import android.content.Intent;
 
 public class NotificationsReceiver extends BroadcastReceiver {
-    public static String NOTIFICATION_ID = "tomer.notification_id";
-    public static String NOTIFICATION_KEY = "tomer.notification";
+    public static String NOTIFICATION_DELAY = "tomer.notification";
 
     public void onReceive(Context context, Intent intent) {
-        int notificationId = intent.getIntExtra(NOTIFICATION_ID, 1);
         NotificationManager notificationManager =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
-        Notification notification = intent.getParcelableExtra(NOTIFICATION_KEY);
+        NotificationsFactory pushNotificationsFactory = NotificationsFactory.getNotificationsFactoryInstance();
+        double delayedMinutes = intent.getDoubleExtra(NOTIFICATION_DELAY, 5);
+        Notification notification =
+                pushNotificationsFactory.getNotificationWithMinutesDelay(context, delayedMinutes);
+        int notificationId = pushNotificationsFactory.getNotificationId();
+
         notificationManager.notify(notificationId, notification);
     }
 }

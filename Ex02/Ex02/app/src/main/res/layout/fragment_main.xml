@@ -71,7 +71,7 @@
             android:background="?attr/colorButtonNormal"
             android:inputType="numberDecimal"
             android:singleLine="true"
-            android:text="0.5"
+            android:text="5"
             android:textAlignment="center" />
 
         <Button
