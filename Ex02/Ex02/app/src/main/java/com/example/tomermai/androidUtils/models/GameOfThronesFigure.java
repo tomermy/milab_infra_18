@@ -1,16 +1,16 @@
-package com.example.tomermai.ex02;
+package com.example.tomermai.androidUtils.models;
 
-class GameOfThronesFigure {
+public class GameOfThronesFigure {
     private String mFigureName;
     private int mProfileImageID;
 
-    GameOfThronesFigure(String mFigureName, int imageId) {
+    public GameOfThronesFigure(String mFigureName, int imageId) {
 
         this.mFigureName = mFigureName;
         this.mProfileImageID = imageId;
     }
 
-    String getmFigureName() {
+    public String getmFigureName() {
         return mFigureName;
     }
 

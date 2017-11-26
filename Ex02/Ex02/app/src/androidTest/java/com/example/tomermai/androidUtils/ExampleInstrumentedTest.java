@@ -1,4 +1,4 @@
-package com.example.tomermai.ex02;
+package com.example.tomermai.androidUtils;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

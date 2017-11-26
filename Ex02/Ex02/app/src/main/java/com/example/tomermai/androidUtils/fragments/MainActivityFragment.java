@@ -1,4 +1,4 @@
-package com.example.tomermai.ex02;
+package com.example.tomermai.androidUtils.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.tomermai.androidUtils.FamilyListActivity;
+import com.example.tomermai.androidUtils.services.NotificationsService;
+import com.example.tomermai.androidUtils.R;
 
 /**
  * A placeholder fragment containing a simple view.

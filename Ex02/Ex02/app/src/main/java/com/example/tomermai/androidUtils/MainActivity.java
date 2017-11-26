@@ -1,8 +1,9 @@
-package com.example.tomermai.ex02;
+package com.example.tomermai.androidUtils;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import com.example.tomermai.androidUtils.fragments.MainActivityFragment;
 
 public class MainActivity extends AppCompatActivity {
 

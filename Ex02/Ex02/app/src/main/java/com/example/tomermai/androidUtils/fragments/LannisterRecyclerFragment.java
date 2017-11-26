@@ -1,4 +1,4 @@
-package com.example.tomermai.ex02;
+package com.example.tomermai.androidUtils.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,6 +7,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.tomermai.androidUtils.adapters.FiguresRecyclerListAdapter;
+import com.example.tomermai.androidUtils.models.GameOfThronesFigure;
+import com.example.tomermai.androidUtils.R;
 
 public class LannisterRecyclerFragment extends Fragment {
     private RecyclerView mRecyclerView;

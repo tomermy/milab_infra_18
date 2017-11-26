@@ -1,8 +1,10 @@
-package com.example.tomermai.ex02;
+package com.example.tomermai.androidUtils.models;
 
 import android.app.Notification;
 import android.content.Context;
 import android.support.v4.app.NotificationCompat;
+
+import com.example.tomermai.androidUtils.R;
 
 public class NotificationsFactory {
 

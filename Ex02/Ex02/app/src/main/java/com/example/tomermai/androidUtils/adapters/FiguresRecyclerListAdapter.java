@@ -1,4 +1,4 @@
-package com.example.tomermai.ex02;
+package com.example.tomermai.androidUtils.adapters;
 
 
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.tomermai.androidUtils.R;
+import com.example.tomermai.androidUtils.models.GameOfThronesFigure;
 
 
 public class FiguresRecyclerListAdapter

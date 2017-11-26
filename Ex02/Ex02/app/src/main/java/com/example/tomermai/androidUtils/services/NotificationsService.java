@@ -1,4 +1,4 @@
-package com.example.tomermai.ex02;
+package com.example.tomermai.androidUtils.services;
 
 import android.app.AlarmManager;
 import android.app.IntentService;

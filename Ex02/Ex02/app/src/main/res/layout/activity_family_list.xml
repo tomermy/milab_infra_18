@@ -5,6 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/family_fragment_container"
-    tools:context="com.example.tomermai.ex02.FamilyListActivity">
+    tools:context="com.example.tomermai.androidUtils.FamilyListActivity">
 
 </android.support.constraint.ConstraintLayout>

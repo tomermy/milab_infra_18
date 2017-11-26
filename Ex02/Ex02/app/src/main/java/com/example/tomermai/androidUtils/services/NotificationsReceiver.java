@@ -1,10 +1,12 @@
-package com.example.tomermai.ex02;
+package com.example.tomermai.androidUtils.services;
 
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+
+import com.example.tomermai.androidUtils.models.NotificationsFactory;
 
 public class NotificationsReceiver extends BroadcastReceiver {
     public static String NOTIFICATION_DELAY = "tomer.notification";
