@@ -35,14 +35,14 @@
                 android:layout_gravity="center_horizontal"
                 android:background="?attr/colorButtonNormal"
                 android:hint="How to..."
-                android:inputType="numberDecimal"
                 android:singleLine="true"
+                android:maxLines="1"
                 android:textAlignment="center"
                 android:textStyle="italic" />
         </LinearLayout>
 
         <Button
-            android:id="@+id/search_button"
+            android:id="@+id/google_search_button"
             style="?android:attr/buttonStyleInset"
             android:layout_width="0dp"
             android:layout_height="36dp"
