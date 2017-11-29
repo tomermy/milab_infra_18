@@ -146,18 +146,15 @@ public class MainActivityFragment extends Fragment {
     }
 
     private void getTitleFromHtml(String response, TextView googleQueueryResult) {
-        Document googleResponseHtml;
-
-        googleResponseHtml = Jsoup.parse(response);
-//        Elements results = googleResponseHtml.select("h3.r > a");
-//        if (results.size() == 0) {
-//            googleQueueryResult.setText("No results found!");
-//            return;
-//        }
-//        String firstResultTitle = results.first().text();
-        String pageTitle = googleResponseHtml.title();
+        Document googleResponseHtml = Jsoup.parse(response);
+        Elements results = googleResponseHtml.select("a._Olt").select("div._H1m");
+        if (results.size() == 0) {
+            googleQueueryResult.setText("No results found!");
+            return;
+        }
+        String firstResultTitle = results.first().text();
         googleQueueryResult
-                .setText(pageTitle);
+                .setText(firstResultTitle);
     }
 
     public void startSpamActivity(long timeInterval) {
