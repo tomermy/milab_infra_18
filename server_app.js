@@ -29,4 +29,4 @@ app.get('/getFile', (req, res) => {
 	})
 })	
 
-app.listen(3000, () => console.log('Server app listening on port 3000!'))
+app.listen(port, () => console.log('Server app listening on port!'))
