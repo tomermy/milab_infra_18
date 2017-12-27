@@ -1,2 +1,5 @@
 https://sleepy-eyrie-53831.herokuapp.com
-filename = server_file
+
+files list on server:
+dani.jpg
+server_file.txt
