@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">PushClient</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="socket_input">API Input</string>
+    <string name="socket_io_trigger">Start Listening</string>
+    <string name="input_for_external_api">Input For External API:</string>
+</resources>
