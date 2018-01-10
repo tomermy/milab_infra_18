@@ -6,4 +6,5 @@
     <string name="socket_input">API Input</string>
     <string name="socket_io_trigger">Start Listening</string>
     <string name="input_for_external_api">Input For External API:</string>
+    <string name="default_stock_name">JNJ</string>
 </resources>

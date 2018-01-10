@@ -10,8 +10,7 @@ import java.net.URISyntaxException;
 
 public class SocketIOClient extends Application {
 
-    // todo: Replace with the correct URL of our server
-    private static final String PUSH_SERVER_URL = "heroku server URL";
+    private static final String PUSH_SERVER_URL = "https://milab-infrastructures.herokuapp.com/";
 
     private Socket mSocket;
 

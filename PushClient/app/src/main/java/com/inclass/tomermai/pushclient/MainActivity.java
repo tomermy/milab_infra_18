@@ -15,9 +15,10 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
     public static final String POST_STOCK_PRICE_KEY = "postStockPrice";
-    public static final String LAST_UPDATED_KEY = "lastUpdatedOn";
+    public static final String LAST_UPDATED_KEY = "mostRecentStock";
     public static final String STOCK_NOT_FOUND_KEY = "notFound";
-    public static final String PRICE_KEY = "price";
+    public static final String PRICE_KEY = "currentValue";
+    public static final String SEND_STOCK_KEY = "setStockName";
 
     private Socket mSocketIO;
 
@@ -27,17 +28,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         SocketIOClient app = (SocketIOClient) getApplication();
         mSocketIO = app.getSocketIOInstance();
+        Log.d(TAG, "Connected to the server successfully.");
 
-        // todo: Validate listeners during integration with Gilad
-        mSocketIO.on(POST_STOCK_PRICE_KEY, onPostStockPrice);
-        mSocketIO.on(STOCK_NOT_FOUND_KEY, onStockNotFound);
-        mSocketIO.on(Socket.EVENT_CONNECT, onConnect);
-        mSocketIO.on(Socket.EVENT_DISCONNECT, onDisconnect);
-        mSocketIO.on(Socket.EVENT_CONNECT_TIMEOUT, onConnectError);
-        mSocketIO.on(Socket.EVENT_CONNECT_ERROR, onConnectError);
-        /// ------------------------------------------
+        if (mSocketIO != null) {
 
-        mSocketIO.connect();
+            // todo: Validate listeners during integration with Gilad
+            mSocketIO.on(POST_STOCK_PRICE_KEY, onPostStockPrice);
+            mSocketIO.on(STOCK_NOT_FOUND_KEY, onStockNotFound);
+            mSocketIO.on(Socket.EVENT_CONNECT, onConnect);
+            mSocketIO.on(Socket.EVENT_DISCONNECT, onDisconnect);
+            mSocketIO.on(Socket.EVENT_CONNECT_TIMEOUT, onConnectError);
+            mSocketIO.on(Socket.EVENT_CONNECT_ERROR, onConnectError);
+            /// ------------------------------------------
+
+            mSocketIO.connect();
+        }
     }
 
     private Emitter.Listener onConnect = new Emitter.Listener() {
@@ -47,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     Log.d(TAG, "Connection is Established");
+                    EditText inputFromUser = findViewById(R.id.stock_name_box);
+                    inputFromUser.setText(R.string.default_stock_name);
                     postStockNameToServer();
                 }
             });
@@ -69,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "Sending stock name to Socket");
         EditText inputFromUser = findViewById(R.id.stock_name_box);
         if (inputFromUser != null) {
-            mSocketIO.emit("postStockNameToServer", inputFromUser.getText());
+            mSocketIO.emit(SEND_STOCK_KEY, inputFromUser.getText());
         }
     }
 
