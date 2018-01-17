@@ -28,7 +28,7 @@ mongoClient.connect(MONGO_DB_URL, (err, database) => {
 	})
 })
 
-// CREATE ENDPOINT
+// CREATE - ENDPOINT
 app.post('/', (req, res) => {
 	if (!req.body.songName || !req.body.albumName ||
 	 !req.body.artistName || !req.body.genre) {
@@ -36,12 +36,12 @@ app.post('/', (req, res) => {
 			error: "Missing song params"
 		});
 	} else {
-		let status = createNewSong(req.body.songName,req.body.albumName,
+		let status = insertSongToDB(req.body.songName,req.body.albumName,
 		 req.body.artistname, req.body.genre, res);
 	}
 });
 
-// READ ENDPOINT
+// READ - ENDPOINT
 app.get('/', (req, res) => {
 	if (req.query.songName) {
 		fetchSongDocument(req.query.songName, res);
@@ -56,39 +56,33 @@ app.get('/', (req, res) => {
 	}
 });
 
-// UPDATE ENDPOINT
+// UPDATE - ENDPOINT
 app.put('/', (req, res) => {
 	updateSongDocument(req.body.id, req.body.songName,
 		req.body.albumName, req.body.artistName, req.body.genre, res);
 });
 
-// DELETE ENDPOINT
+// DELETE - ENDPOINT
 app.delete('/:id', (req, res) => {
 	let songID = req.params.id;
-	deleteSong(songID, res);
+	deleteSongFromDB(songID, res);
 });
 
-function createNewSong(song, album, artist, genre, res) {
+// Internal logic helper methods
+function insertSongToDB(song, album, artist, genre, res) {
 	let songJSON = {
 		name: song,
 		album: album,
 		artist: artist,
 		genre: genre
 	};
+
 	mongoDB.collection('songs').insert([songJSON], (err, result) => {
 		if (err) {
 			res.send("Error adding new song to database")
 		} else {
 			res.send("New song was added!");
 		}
-	});
-}
-
-function deleteSong(songID, res) {
-	mongoDB.collection('songs').deleteOne({
-		_id: mongoObjectId(songID)
-	}, (err, result) => {
-		res.send("Deleted song with id: " + songID);
 	});
 }
 
@@ -108,11 +102,19 @@ function updateSongDocument(id, song, album, artist, genre, res) {
 			if (err) {
 				res.send("Error updating request song");
 			} else if (numUpdated) {
-				res.send("Song was updated successfully");
+				res.send("Song was updated successfully!");
 			} else {
-				res.send("Couldn't find song");
+				res.send("Song was not found");
 			}
 		});
+}
+
+function deleteSongFromDB(songID, res) {
+	mongoDB.collection('songs').deleteOne({
+		_id: mongoObjectId(songID)
+	}, (err, result) => {
+		res.send("Deleted song with id: " + songID);
+	});
 }
 
 function printSongDetails(songJSON, res) {
@@ -125,12 +127,13 @@ function printSongDetails(songJSON, res) {
 	res.write(`}`);
 }
 
+// Query Utils
 function fetchSongDocument(song, res) {
 	mongoDB.collection('songs').findOne({
 		name: song
-	}, function(err, document) {
+	}, (err, document) => {
 		if (err || !document) {
-			res.send("Can't find the song: " + song);
+			res.send("Song was not found: " + song);
 		} else {
 			printSongDetails(document, res);
 			res.end();
@@ -145,7 +148,7 @@ function fetchAlbumDocument(album, res) {
 		if (err || !results[0]) {
 			res.send("Error looking for songs");
 		} else {
-			res.write(`Songs Results:\n`);
+			res.write(`Results:\n`);
 			results.forEach(doc => 
 				printSongDetails(doc, res));
 			res.end();
@@ -160,8 +163,10 @@ function fetchArtistDocument(artist, res) {
 		if (err || !results[0]) {
 			res.send("Error looking for songs");
 		} else {
-			res.write(`Songs Results:\n`);
-			results.forEach(doc => printSongDetails(doc, res));
+			res.write(`Results:\n`);
+			results.forEach(doc => 
+				printSongDetails(doc, res));
+			
 			res.end();
 		}
 	});
