@@ -22,16 +22,7 @@ mongoClient.connect(MONGO_DB_URL, (err, database) => {
 
 	console.log("Successfully connected to mongo database");
 	mongoDB = database.db("songs_db");
-	mongoDB.collection('songs').createIndex({
-		album: 1
-	});
-	mongoDB.collection('songs').createIndex({
-		artist: 1
-	});
-	mongoDB.collection('songs').createIndex({
-		name: 1
-	});
-
+	
 	app.listen(process.env.PORT || 3000, () => {
 		console.log('App is now listening')
 	})
@@ -39,13 +30,14 @@ mongoClient.connect(MONGO_DB_URL, (err, database) => {
 
 // CREATE ENDPOINT
 app.post('/', (req, res) => {
-	if (!req.body.songName || !req.body.albumName || !req.body.artistName || !req.body.genre) {
+	if (!req.body.songName || !req.body.albumName ||
+	 !req.body.artistName || !req.body.genre) {
 		res.status(400).send({
 			error: "Missing song params"
 		});
 	} else {
-		let status = createNewSong(req.body.songName,
-			req.body.albumName, req.body.artistname, req.body.genre, res);
+		let status = createNewSong(req.body.songName,req.body.albumName,
+		 req.body.artistname, req.body.genre, res);
 	}
 });
 
@@ -92,11 +84,11 @@ function createNewSong(song, album, artist, genre, res) {
 	});
 }
 
-function deleteSong(delId, res) {
+function deleteSong(songID, res) {
 	mongoDB.collection('songs').deleteOne({
-		_id: mongoObjectId(delId)
+		_id: mongoObjectId(songID)
 	}, (err, result) => {
-		res.send("Deleted song with id: " + delId);
+		res.send("Deleted song with id: " + songID);
 	});
 }
 
